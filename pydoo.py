@@ -4,14 +4,13 @@
 Pydoo
 A todo program made for quickness and easability
 Harrison Witt @altwitt
-techanimist.com 
-'''
+techanimist.com '''
 
 import sys
 from datetime import datetime
 
 # Global Variables
-title = '''  
+TITLE = '''  
 
 ________________________________________________
 ================================================
@@ -32,38 +31,41 @@ ________________________________________________
 
 '''
 
+# Different Syntax
+cmd_spell = ["a", "add", "ad", "dd", "l", "list", "li", "liss", "lis", "r", "remove", "re", "rem", "remo", "remov", "q", "quit", "qu", "qui", "qq", "qqu", "qquit"]
+grp_spell = ["c", "code", "codd", "co"]
 # Use as partition
-line_break = "================================"
+BR = "================================"
 
 # Getting the time and date
-i = datetime.now()
-thetime = i.strftime('%I.%M%p')
-thedate = i.strftime('%m.%d.%Y')
+the_now = datetime.now()
+the_time = the_now.strftime('%I.%M%p')
+the_date = the_now.strftime('%m.%d.%Y')
 
-# Functions
+# Function
 def get_tasks():
     '''Retrieves and parses the formatted groups and tasks
     from pydoo.txt'''
 
-    c,w,h = [],[],[]
+    c, w, h = [], [], []
 
-    with open("pydoo.txt","rt") as p:
+    with open("pydoo.txt", "rt") as p:
         glist = p.read()
         text = glist.split("|")
 
     for i in text:
-            g = i[0]
-            if g  == 'c':
-                i = i[1:]
-                c.append(i)
-            elif g  == 'w':
-                i = i[1:]
-                w.append(i)
-            elif g  == 'h':
-                i = i[1:]
-                h.append(i)
-
-    tasks = [c,h,w]
+        g = i[0]
+        if g == 'c':
+            i = i[1:]
+            c.append(i)
+        elif g  == 'w':
+            i = i[1:]
+            w.append(i)
+        elif g  == 'h':
+            i = i[1:]
+            h.append(i)
+ 
+    tasks = [c, h, w]
     return tasks
 
 def which_group(str_group):
@@ -82,21 +84,21 @@ def which_group(str_group):
 def list_groups():
     '''Prints the groups and their tasks'''
 
-    print("CODING GROUP{}".format(line_break))
+    print("CODING GROUP{}".format(BR))
     ccnt = 1
 
     for i in codeG:
         print("{0}: {1}".format(ccnt, i))
         ccnt += 1
 
-    print("WORK GROUP{}".format(line_break))
+    print("WORK GROUP{}".format(BR))
     wcnt = 1
 
     for i in workG:
         print("{0}: {1}".format(wcnt, i))
         wcnt += 1
 
-    print("HOME GROUP{}".format(line_break))
+    print("HOME GROUP{}".format(BR))
     hcnt = 1
 
     for i in homeG:
@@ -115,28 +117,28 @@ def remove_task():
     '''Removes a task from the selected group'''
 
     cnt = 1
-    groupQ = raw_input("Which group would you like to remove from? ")
+    groupq = raw_input("Which group would you like to remove from? ")
     group = which_group(groupQ)
 
-    if groupQ == "c":
-        groupQ = "Code"
-    elif groupQ == "w":
-        groupQ = "Work"
-    elif groupQ == "h":
-        groupQ == "Home"
+    if groupq == "c":
+        groupq = "Code"
+    elif groupq == "w":
+        groupq = "Work"
+    elif groupq == "h":
+        groupq = "Home"
     else:
         print("You didn't enter a valid command")
 
-    print(line_break)
-    print(line_break)
-    print("Tasks in the {} group: ".format(groupQ))
+    print(BR)
+    print(BR)
+    print("Tasks in the {} group: ".format(groupq))
 
     for i in group:
         print("{0}: {1}".format(cnt, i))
         cnt += 1
 
-    print(line_break)
-    print(line_break)
+    print(BR)
+    print(BR)
     num = raw_input("Write the number of the task you would like to remove: ")
     cnt = 1
 
@@ -183,8 +185,11 @@ if __name__ == "__main__":
     homeG = tasks[1]
     workG = tasks[2]
 
-    print title
-    
+    print(TITLE)
+    print("It is {0} on {1}".format(the_time,the_date))
+    print(BR)
+    print("Lets write some tasks!")
+
     while True:
         print("\n")
         cmd = raw_input("(l)ist, (a)dd, (r)emove, or (q)uit: ")
