@@ -11,7 +11,6 @@ from datetime import datetime
 
 # Global Variables
 TITLE = '''  
-
 ________________________________________________
 ================================================
                            ,,                    
@@ -24,11 +23,9 @@ ________________________________________________
   MMbmmd`     ,V     `Wbmd*MML.`Ybmd9`   `Ybmd9` 
   MM         ,V                                  
 .JMML.    OOb*                                   
-
 ....so you do quick!
 ===============================================
 ===============================================
-
 '''
 
 # Different Syntax
@@ -108,8 +105,8 @@ def list_groups():
 def add_task():
     '''Adds a task from the selected group'''
 
-    groupQ = raw_input("Add to which group : ")
-    group = which_group(groupQ)
+    groupq = raw_input("Add to which group : ")
+    group = which_group(groupq)
     task = raw_input("Write task:  ")
     group.append(task)
 
@@ -118,7 +115,7 @@ def remove_task():
 
     cnt = 1
     groupq = raw_input("Which group would you like to remove from? ")
-    group = which_group(groupQ)
+    group = which_group(groupq)
 
     if groupq == "c":
         groupq = "Code"
@@ -149,6 +146,28 @@ def remove_task():
             group.pop(int(num)-1)
         break
 
+def quick_task():
+    '''add or remove task with one command'''
+    cmd = sys.argv[1]
+    grp = sys.argv[2]
+    tsk = sys.argv[3]
+    group = which_group(grp)
+
+    if cmd == "a":
+        group.append(tsk)
+
+    elif cmd == "r":
+        group.pop(int(tsk)-1)
+
+    put_tasks()
+    print(BR)
+    print("YOUR SAVED LIST AT EXIT:")
+    print(BR)
+    list_groups()
+    print(BR)
+    print("Until next time, Goodbye! :)")
+    sys.exit()
+    
 def qloop():
     '''Flow control for list options'''
     if cmd == "q":
@@ -184,7 +203,10 @@ if __name__ == "__main__":
     codeG = tasks[0]
     homeG = tasks[1]
     workG = tasks[2]
-
+    
+    if len(sys.argv) > 1:
+        quick_task()
+    
     print(TITLE)
     print("It is {0} on {1}".format(the_time,the_date))
     print(BR)
