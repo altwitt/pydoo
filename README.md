@@ -105,23 +105,9 @@ list - Prints out the current list.
 quit - If you want to exit, type q then y for saving, n for not.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-THE REST IS A README TEMPLATE. THIS IS A WORK IN PROGRESS!!
-What things you need to install the software and how to install them
+## Author
 
-```
-It is 11.15PM on 12.10.2018
-================================
-Lets write some tasks!
-
-
-(l)ist, (a)dd, (r)emove, or (q)uit:
-```
-
-
-## Authors
-
-* **Harrison Witt** - )
+* **Harrison Witt** - ) **@hwitt2**
 
 ## License
 
