@@ -1,4 +1,4 @@
-________________________________________________
+```
 ================================================
                            ,,
                          `7MM
@@ -13,10 +13,9 @@ ________________________________________________
 
 ....so you do quick!
 ===============================================
-===============================================
-
-When I had a flash of an idea (that I would probably forget), I wanted a lightweight 
-python app to put something down on my Android. I love it and use it everyday!   
+```
+When I would had a flash of an idea (that I would probably forget), I wanted a lightweight 
+python app to quickly put something down on my Android. I love it and still use it everyday!   
 
 ## How to begin
 ### NO REQUIREMENTS
